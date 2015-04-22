@@ -1,0 +1,30 @@
+{
+  "name": "boxscores",
+  "version": "1.0.0",
+  "description": "Boxscore fetching service",
+  "main": "index.js",
+  "scripts": {
+    "test": "lab -v -t 100"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaw187/boxscores.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaw187/boxscores/issues"
+  },
+  "homepage": "https://github.com/jaw187/boxscores",
+  "dependencies": {
+    "code": "1.x.x",
+    "hoek": "2.x.x",
+    "insync": "1.x.x",
+    "lab": "5.x.x",
+    "wreck": "5.x.x"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {}
+}
