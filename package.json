@@ -1,10 +1,10 @@
 {
   "name": "boxscores",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Boxscore fetching service",
   "main": "index.js",
   "scripts": {
-    "test": "lab -v -t 100"
+    "test": "lab -v -t 100 -m 20000 -p"
   },
   "repository": {
     "type": "git",

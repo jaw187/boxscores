@@ -3,8 +3,6 @@
 var Code = require('code');
 var Lab = require('lab');
 
-var Purdy = require('purdy');
-
 var Mlb = require('../lib/mlb');
 
 // Declare internals
@@ -61,6 +59,46 @@ describe('Gets data from MLB', function () {
         });
     });
 
+    it('Can get plays', function (done) {
+
+        var options = {
+            path: 'year_2011/month_07/day_23/'
+        };
+
+        Mlb.getScoreboard(options, function (err, scoreboard) {
+
+            expect(err).to.not.exist();
+
+            options.scoreboard = scoreboard;
+            Mlb.getPlays(options, function (err, games) {
+
+                expect(err).to.not.exist();
+                expect(games.length).to.equal(15);
+                done();
+            });
+        });
+    });
+
+    it('Can get game events', function (done) {
+
+        var options = {
+            path: 'year_2011/month_07/day_23/'
+        };
+
+        Mlb.getScoreboard(options, function (err, scoreboard) {
+
+            expect(err).to.not.exist();
+
+            options.scoreboard = scoreboard;
+            Mlb.getGameevents(options, function (err, events) {
+
+                expect(err).to.not.exist();
+                expect(events.length).to.equal(15);
+                done();
+            });
+        });
+    });
+
     it('Fails to get scoreboard without options', function (done) {
 
         Mlb.getScoreboard(null, function (err) {
@@ -73,6 +111,24 @@ describe('Gets data from MLB', function () {
     it('Fails to get boxscores without options', function (done) {
 
         Mlb.getBoxscores(null, function (err) {
+
+            expect(err).to.exist();
+            done();
+        })
+    });
+
+    it('Fails to get plays without options', function (done) {
+
+        Mlb.getPlays(null, function (err) {
+
+            expect(err).to.exist();
+            done();
+        })
+    });
+
+    it('Fails to get game events without options', function (done) {
+
+        Mlb.getGameevents(null, function (err) {
 
             expect(err).to.exist();
             done();
